@@ -1,7 +1,7 @@
 {
   "name": "react-extended-jsx",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.4",
   "type": "module",
   "description": "Extension for JSX and forget about ternaries in components and create cleaner components.",
   "repository": {
@@ -11,6 +11,7 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "author": "Javier Holguin <javierh2k@gmail.com>",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
@@ -19,7 +20,8 @@
     }
   },
   "files": [
-    "/dist"
+    "/dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
