@@ -1,12 +1,12 @@
 {
   "name": "react-extended-jsx",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Extension for JSX and forget about ternaries in components and create cleaner components.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/javierh2k/react-extend-jsx"
+    "url": "https://github.com/javierh2k/react-extended-jsx"
   },
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
