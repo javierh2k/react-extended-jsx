@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { When } from './When';
+import { When } from '../src/When';
 
 describe('When', () => {
   it('should render children when condition is true', () => {

@@ -3,7 +3,7 @@
 	"private": false,
 	"description": "Extension for JSX and forget about ternaries in components and create cleaner components.",
 	"license": "MIT",
-	"version": "1.0.20",
+	"version": "1.1.0",
 	"type": "module",
 	"main": "dist/main.cjs",
 	"module": "dist/main.mjs",
@@ -24,29 +24,37 @@
 		}
 	},
 	"scripts": {
-		"build": "tsc && vite build",
+		"dev": "vite",
+		"test": "npx vitest",
+		"build": "vite build",
+		"lint": "eslint . --ext ts,tsx",
 		"postbuild": "cp dist/main.es.js dist/main.js && cp dist/main.es.js dist/main.mjs && cp dist/main.umd.js dist/main.cjs",
-		"lint": "biome lint ./",
-		"format": "biome format ./ --write"
+		"preview": "vite preview"
 	},
 	"peerDependencies": {
 		"react": ">=18.2.0",
 		"react-dom": ">=18.2.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.6.3",
 		"@testing-library/jest-dom": "^6.4.2",
 		"@testing-library/react": "^14.3.0",
 		"@types/jest": "^29.5.12",
 		"@types/node": "^20.12.2",
 		"@types/react": "^18.2.66",
 		"@types/react-dom": "^18.2.22",
+		"@typescript-eslint/eslint-plugin": "^7.6.0",
 		"@vitejs/plugin-react": "^4.2.1",
+		"@vitejs/plugin-react-swc": "^3.5.0",
+		"eslint": "^8.57.0",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.6",
+		"jsdom": "^24.0.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"typescript": "^5.2.2",
 		"vite": "^5.2.0",
-		"vite-plugin-dts": "^3.8.1"
+		"vite-plugin-dts": "^3.8.1",
+		"vitest": "^1.4.0"
 	},
 	"repository": {
 		"type": "git",

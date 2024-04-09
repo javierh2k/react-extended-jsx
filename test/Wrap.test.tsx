@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { Wrap } from './Wrap';
+import { Wrap } from '../src/Wrap';
 
 describe('Wrap', () => {
   it('should render children when show prop is true', () => {

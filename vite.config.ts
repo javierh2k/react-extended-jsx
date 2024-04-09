@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 
-// https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		react(),
@@ -21,23 +20,25 @@ export default defineConfig({
 		rollupOptions: {
 			external: ['react', 'react/jsx-runtime'],
 			output: {
-				dir: 'dist', // Especifica el directorio de salida
-				entryFileNames: `[name].[format].js`, // Personaliza los nombres de archivo de salida
+				dir: 'dist',
+				entryFileNames: `[name].[format].js`,
 				sourcemap: true,
-				// Configuraciones específicas para cada formato
 				format: ['es', 'cjs'].map((format) => ({
-				format: format,
-				exports: 'named', // 'named' para múltiples exportaciones o 'default' para una única exportación
-				sourcemap: true,
-				preserveModules: true, // Preserva la estructura de directorios de módulos
+					format: format,
+					exports: 'named',
+					sourcemap: true,
+					preserveModules: true,
 				})),
 				globals: {
 					react: 'react',
-					'react/jsx-runtime':'react/jsx-runtime'
+					'react/jsx-runtime': 'react/jsx-runtime'
 				}
 			}
-				
-			
-			},
+		},
 	},
-	})
+	test: {
+		globals: true,
+		environment: 'jsdom',
+		setupFiles: './src/setupTests.ts',
+	}
+})

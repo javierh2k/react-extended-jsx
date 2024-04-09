@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { useEffect, useState } from 'react';
 
-import { Each } from './Each'; // Ajusta la ruta de importación según sea necesario
+import { Each } from '../src/Each'; // Ajusta la ruta de importación según sea necesario
 
 test('renders empty when the items array is empty', () => {
   const { container } = render(
