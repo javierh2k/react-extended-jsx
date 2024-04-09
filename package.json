@@ -1,59 +1,55 @@
 {
-  "name": "react-extended-jsx",
-  "private": false,
-  "version": "1.0.4",
-  "type": "module",
-  "description": "Extension for JSX and forget about ternaries in components and create cleaner components.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/javierh2k/react-extended-jsx"
-  },
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
-  "author": "Javier Holguin <javierh2k@gmail.com>",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "/dist",
-    "src"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "dev": "vite",
-    "test": "npx vitest",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "vite-plugin-dts": "^3.8.1",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.3.0",
-    "@types/node": "^20.12.5",
-    "@types/react": "^18.2.74",
-    "@types/react-dom": "^18.2.24",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "jsdom": "^24.0.0",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0",
-    "vitest": "^1.4.0"
-  }
+	"name": "react-extended-jsx",
+	"private": false,
+	"description": "Extension for JSX and forget about ternaries in components and create cleaner components.",
+	"license": "MIT",
+	"version": "1.0.20",
+	"type": "module",
+	"main": "dist/main.cjs",
+	"module": "dist/main.mjs",
+	"types": "dist/main.d.ts",
+	"files": [
+		"README.md",
+		"dist",
+		"src",
+		"LICENSE"
+	],
+	"exports": {
+		"./package.json": "./package.json",
+		".": {
+			"import": "./dist/main.mjs",
+			"module": "./dist/main.js",
+			"require": "./dist/main.cjs",
+			"default": "./dist/main.cjs"
+		}
+	},
+	"scripts": {
+		"build": "tsc && vite build",
+		"postbuild": "cp dist/main.es.js dist/main.js && cp dist/main.es.js dist/main.mjs && cp dist/main.umd.js dist/main.cjs",
+		"lint": "biome lint ./",
+		"format": "biome format ./ --write"
+	},
+	"peerDependencies": {
+		"react": ">=18.2.0",
+		"react-dom": ">=18.2.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.6.3",
+		"@testing-library/jest-dom": "^6.4.2",
+		"@testing-library/react": "^14.3.0",
+		"@types/jest": "^29.5.12",
+		"@types/node": "^20.12.2",
+		"@types/react": "^18.2.66",
+		"@types/react-dom": "^18.2.22",
+		"@vitejs/plugin-react": "^4.2.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"typescript": "^5.2.2",
+		"vite": "^5.2.0",
+		"vite-plugin-dts": "^3.8.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/javierh2k/react-extend-jsx"
+	}
 }

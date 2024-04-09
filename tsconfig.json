@@ -1,26 +1,18 @@
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "types": ["vitest/globals"],
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "include": ["src/**/*", "test/**/*"],
-  "references": [{ "path": "./tsconfig.node.json" }]
-}
+	"compilerOptions": {
+		"target": "es2020", // Compila a la última versión de ECMAScript
+		"module": "CommonJS", // Utiliza la sintaxis de módulos ES
+		"lib": ["es2020"], // Librerías de tiempo de ejecución
+		"allowJs": true, // Permite archivos JavaScript
+		"outDir": "./dist", // Directorio de salida para los archivos transpilados
+		"rootDir": "./src", // Directorio raíz que contiene los archivos TypeScript
+		"strict": false, // Habilita todas las opciones estrictas de tipo
+		"esModuleInterop": true, // Permite la interoperabilidad de módulos ES para importaciones CommonJS
+		"jsx": "react-jsx",
+		"skipLibCheck": true, // Omite la comprobación de tipos en archivos .d.ts
+		"forceConsistentCasingInFileNames": true
+	},
+	"include": ["src/**/*"], // Incluye todos los archivos dentro de la carpeta src
+	"exclude": ["node_modules", "build", "scripts", "webpack", "jest"],
+	}
+	

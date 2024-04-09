@@ -1,46 +1,43 @@
-/// <reference types="vitest" />
-import path from "path";
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import dts from "vite-plugin-dts";
-// import { vitestConfig } from 'vitest/config';
-import "vitest/config"
+import path from 'path'
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  build: {
-    //Specifies that the output of the build will be a library.
-    lib: {
-      //Defines the entry point for the library build. It resolves 
-      //to src/index.ts,indicating that the library starts from this file.
-      entry: path.resolve(__dirname, "src/index.ts"),
-      name: "react-extended-jsx",
-      //A function that generates the output file
-      //name for different formats during the build
-      fileName: (format) => `index.${format}.js`,
-    },
-    rollupOptions: {
-      external: ["react", "react-dom"],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
-      },
-    },
-    //Generates sourcemaps for the built files,
-    //aiding in debugging.
-    sourcemap: false,
-    //Clears the output directory before building.
-    emptyOutDir: true,
-  },
-  //react() enables React support.
-  //dts() generates TypeScript declaration files (*.d.ts)
-  //during the build.
-  plugins: [react(), dts()],
-  test: {
-    // Configuración de Vitest específica para tus necesidades
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
-  }
-});
+	plugins: [
+		react(),
+		dts({
+			include: ['src'],
+		}),
+	],
+	build: {
+		lib: {
+			// fileName: 'main',
+			entry: path.resolve(__dirname, 'src', 'main.ts'),
+			name: "react-extended-jsx",
+			// formats: ['umd'],
+		},
+		rollupOptions: {
+			external: ['react', 'react/jsx-runtime'],
+			output: {
+				dir: 'dist', // Especifica el directorio de salida
+				entryFileNames: `[name].[format].js`, // Personaliza los nombres de archivo de salida
+				sourcemap: true,
+				// Configuraciones específicas para cada formato
+				format: ['es', 'cjs'].map((format) => ({
+				format: format,
+				exports: 'named', // 'named' para múltiples exportaciones o 'default' para una única exportación
+				sourcemap: true,
+				preserveModules: true, // Preserva la estructura de directorios de módulos
+				})),
+				globals: {
+					react: 'react',
+					'react/jsx-runtime':'react/jsx-runtime'
+				}
+			}
+				
+			
+			},
+	},
+	})
