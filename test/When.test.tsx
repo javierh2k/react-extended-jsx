@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 
 import { When } from '../src/When';
+import React from 'react';
 
 describe('When', () => {
   it('should render children when condition is true', () => {
@@ -42,6 +43,17 @@ describe('When', () => {
 
     expect(getByText('Condition is true')).toBeInTheDocument();
   });
+
+  it('should render children when condition function returns false', () => {
+    const { queryByText } = render(
+      <When condition={undefined}>
+        <div>Condition is empty</div>
+      </When>,
+    );
+
+    expect(queryByText('Condition is empty')).toBeNull();
+  });
+
 
   it('should not render children when condition function returns false', () => {
     const { queryByText } = render(
